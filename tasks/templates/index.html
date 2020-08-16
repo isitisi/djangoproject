@@ -1,0 +1,42 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h3><center>track your days, Make your life productive</center></h3>
+
+
+
+
+
+hello world!
+{% block content%}
+<ul class="sidebar-nav">
+
+    ...
+
+   {% if user.is_authenticated %}
+   <label>first task</label>
+   <input type="text" name="" value="" placeholder="">&nbsp;<button type="submit">submit</button>
+     <li>User: {{ user.get_username }}</li>
+
+
+
+
+     <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
+   {% else %}
+     <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
+   {% endif %} 
+  </ul>
+  <br>
+  {% if user.is_authenticated %}
+  	
+     <h3>{{ todays_task }}</h3>
+  	
+  {% endif %}
+<center></center>
+{%endblock%}
+</body>
+</html>
